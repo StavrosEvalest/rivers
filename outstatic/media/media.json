@@ -1,0 +1,66 @@
+{
+  "commit": "",
+  "generated": "2026-05-21T15:58:54.716Z",
+  "media": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "1137826412",
+        "path": "public/file.svg"
+      },
+      "alt": "",
+      "filename": "file.svg",
+      "publishedAt": "2026-05-21T15:58:54.105Z",
+      "source": "images",
+      "type": "image"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "1266417111",
+        "path": "public/globe.svg"
+      },
+      "alt": "",
+      "filename": "globe.svg",
+      "publishedAt": "2026-05-21T15:58:54.106Z",
+      "source": "images",
+      "type": "image"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "524690764",
+        "path": "public/next.svg"
+      },
+      "alt": "",
+      "filename": "next.svg",
+      "publishedAt": "2026-05-21T15:58:54.106Z",
+      "source": "images",
+      "type": "image"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "2867336623",
+        "path": "public/vercel.svg"
+      },
+      "alt": "",
+      "filename": "vercel.svg",
+      "publishedAt": "2026-05-21T15:58:54.106Z",
+      "source": "images",
+      "type": "image"
+    },
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "1512874978",
+        "path": "public/window.svg"
+      },
+      "alt": "",
+      "filename": "window.svg",
+      "publishedAt": "2026-05-21T15:58:54.106Z",
+      "source": "images",
+      "type": "image"
+    }
+  ]
+}
