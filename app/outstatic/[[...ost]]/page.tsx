@@ -9,5 +9,9 @@ export default async function Page({
 }) {
   const ostData = await Outstatic();
   const resolvedParams = await params;
-  return <OstClient ostData={ostData} params={resolvedParams} />;
+  return (
+    <div id="outstatic">
+      <OstClient ostData={ostData} params={resolvedParams} />
+    </div>
+  );
 }
