@@ -9,7 +9,7 @@ author:
   picture: ""
 ---
 
-We are thrilled to welcome you to the launch of **Rivers** — a new platform dedicated to the exploration, documentation, and conservation of rivers across the globe.
+We are so thrilled to welcome you to the launch of **Rivers** — a new platform dedicated to the exploration, documentation, and conservation of rivers across the globe!
 
 ## Why Rivers?
 

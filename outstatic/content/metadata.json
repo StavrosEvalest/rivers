@@ -1,0 +1,23 @@
+{
+  "commit": "",
+  "generated": "2026-05-21T15:40:31.360Z",
+  "metadata": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "1907987083",
+        "path": "outstatic/content/news/welcome-to-rivers.md"
+      },
+      "author": {
+        "name": "Rivers Team",
+        "picture": ""
+      },
+      "collection": "news",
+      "description": "We are excited to launch our new website dedicated to the world's rivers.",
+      "publishedAt": "2026-05-20T00:00:00.000Z",
+      "slug": "welcome-to-rivers",
+      "status": "published",
+      "title": "Welcome to Rivers"
+    }
+  ]
+}
