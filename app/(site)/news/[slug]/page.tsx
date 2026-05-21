@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  return getDocumentPaths("news");
+  return getDocumentPaths("news").map(({ params }) => params);
 }
 
 export default async function NewsPost({
