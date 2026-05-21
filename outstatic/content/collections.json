@@ -1,0 +1,14 @@
+[
+  {
+    "title": "News",
+    "slug": "news",
+    "path": "outstatic/content/news",
+    "children": []
+  },
+  {
+    "title": "Pages",
+    "slug": "pages",
+    "path": "outstatic/content/pages",
+    "children": []
+  }
+]
