@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navigation from "./components/Navigation";
 import "../globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rivers.gr";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rivers-silk.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
