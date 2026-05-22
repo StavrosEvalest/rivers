@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Navigation from "./components/Navigation";
 import "../globals.css";
 
@@ -37,15 +38,15 @@ export default function SiteLayout({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-full bg-sky-400/20 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-cyan-300" fill="currentColor">
-                    <path d="M12 2a5 5 0 0 0-5 5c0 3.5 5 11 5 11s5-7.5 5-11a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-bold text-white text-sm">Δίκτυο Δήμων με Ποτάμια</div>
-                  <div className="text-sky-400 text-xs">Ελληνικό Δίκτυο</div>
+              <div className="mb-4">
+                <div className="inline-block bg-white/95 rounded-lg px-2 py-1">
+                  <Image
+                    src="https://rivers.gr/wp-content/uploads/2025/05/483596122_988930830035485_1672883815643360044_n-300x90.jpg"
+                    alt="Ελληνικό Δίκτυο Δήμων με Ποτάμια"
+                    width={180}
+                    height={54}
+                    className="h-10 w-auto"
+                  />
                 </div>
               </div>
               <p className="text-sky-300 text-sm leading-relaxed">

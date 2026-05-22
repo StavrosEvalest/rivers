@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navItems = [
@@ -40,19 +41,16 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="w-9 h-9 rounded-full bg-sky-400/20 flex items-center justify-center group-hover:bg-sky-400/30 transition-colors">
-              <svg
-                viewBox="0 0 24 24"
-                className="w-5 h-5 text-cyan-300"
-                fill="currentColor"
-              >
-                <path d="M12 2a5 5 0 0 0-5 5c0 3.5 5 11 5 11s5-7.5 5-11a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
-              </svg>
-            </div>
-            <div className="leading-tight">
-              <div className="text-white font-bold text-sm">Δίκτυο Δήμων</div>
-              <div className="text-cyan-300 text-[11px] font-medium">με Ποτάμια</div>
+          <Link href="/" className="shrink-0 group">
+            <div className="bg-white/95 rounded-lg px-2 py-1 group-hover:bg-white transition-colors">
+              <Image
+                src="https://rivers.gr/wp-content/uploads/2025/05/483596122_988930830035485_1672883815643360044_n-300x90.jpg"
+                alt="Ελληνικό Δίκτυο Δήμων με Ποτάμια"
+                width={150}
+                height={45}
+                className="h-9 w-auto"
+                priority
+              />
             </div>
           </Link>
 
