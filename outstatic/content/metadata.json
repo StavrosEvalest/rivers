@@ -1,6 +1,6 @@
 {
-  "commit": "",
-  "generated": "2026-05-21T15:40:31.360Z",
+  "commit": "cceb5e2f54f38abbb6fb20f3b9fc4f91e0958e0b",
+  "generated": "2026-05-22T12:45:34.409Z",
   "metadata": [
     {
       "__outstatic": {
@@ -18,6 +18,23 @@
       "slug": "welcome-to-rivers",
       "status": "published",
       "title": "Welcome to Rivers"
+    },
+    {
+      "__outstatic": {
+        "commit": "cceb5e2f54f38abbb6fb20f3b9fc4f91e0958e0b",
+        "hash": "3651922354",
+        "path": "outstatic/content/news/festival-tainion-2025.md"
+      },
+      "author": {
+        "name": "Δίκτυο Δήμων με Ποτάμια",
+        "picture": ""
+      },
+      "collection": "news",
+      "description": "Το Ελληνικό Δίκτυο Δήμων με Ποτάμια διοργανώνει Ευρωπαϊκό Φεστιβάλ Ταινιών Μικρού Μήκους στα Τρίκαλα, 20–23 Νοεμβρίου 2025.",
+      "publishedAt": "2025-11-01T00:00:00.000Z",
+      "slug": "festival-tainion-2025",
+      "status": "published",
+      "title": "Φεστιβάλ Ταινιών Μικρού Μήκους — «Ποτάμια: Ζωής Ευεργέτες» 2025"
     }
   ]
 }
