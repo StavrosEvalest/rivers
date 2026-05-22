@@ -38,20 +38,17 @@ export default function Navigation() {
           : "bg-sky-950"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="shrink-0 group">
-            <div className="bg-white/95 rounded-lg px-2 py-1 group-hover:bg-white transition-colors">
               <Image
-                src="https://rivers.gr/wp-content/uploads/2025/05/483596122_988930830035485_1672883815643360044_n-300x90.jpg"
+                src="/new-rivers-inline-logo-transparent.png"
                 alt="Ελληνικό Δίκτυο Δήμων με Ποτάμια"
-                width={150}
+                width={200}
                 height={45}
-                className="h-9 w-auto"
                 priority
               />
-            </div>
           </Link>
 
           {/* Desktop Nav */}

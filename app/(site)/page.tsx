@@ -71,18 +71,29 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-sky-950/88 via-sky-900/80 to-cyan-900/70" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 text-center">
-          <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/30 rounded-full px-4 py-1.5 text-sky-200 text-sm mb-8">
-            <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-            Ελληνικό Δίκτυο Δήμων με Ποτάμια
+          <div className="flex justify-end mb-8">
+            <div className="inline-flex items-center gap-2 bg-sky-400/20 border border-sky-400/30 rounded-full px-4 py-1.5 text-sky-200 text-sm">
+              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+              Ελληνικό Δίκτυο Δήμων με Ποτάμια
+            </div>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.05] tracking-tight">
-            Προστατεύουμε{" "}
-            <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-300">
-              τα Ποτάμια μας
-            </span>
-          </h1>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
+            <Image
+              src="/new-rivers-logo-transparent.png"
+              alt="Ελληνικό Δίκτυο Δήμων με Ποτάμια"
+              width={180}
+              height={54}
+              className="shrink-0"
+            />
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight sm:text-left">
+              Προστατεύουμε{" "}
+              <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-300">
+                τα Ποτάμια μας
+              </span>
+            </h1>
+          </div>
 
           <p className="text-lg sm:text-xl text-sky-200 max-w-2xl mx-auto mb-10 leading-relaxed">
             Ένας θεσμικός φορέας που ενώνει{" "}
@@ -225,7 +236,7 @@ export default async function HomePage() {
                   {/* Card image */}
                   <div className="relative h-44 bg-sky-100 overflow-hidden">
                     <Image
-                      src="https://rivers.gr/wp-content/uploads/2021/11/RIVERS-logo-150.jpg"
+                      src="/placeholder.png"
                       alt=""
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"

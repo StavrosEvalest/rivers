@@ -39,13 +39,12 @@ export default function SiteLayout({
             {/* Brand */}
             <div>
               <div className="mb-4">
-                <div className="inline-block bg-white/95 rounded-lg px-2 py-1">
+                <div className="inline-block rounded-lg px-2 py-1">
                   <Image
-                    src="https://rivers.gr/wp-content/uploads/2025/05/483596122_988930830035485_1672883815643360044_n-300x90.jpg"
+                    src="/new-rivers-logo-transparent.png"
                     alt="Ελληνικό Δίκτυο Δήμων με Ποτάμια"
                     width={180}
                     height={54}
-                    className="h-10 w-auto"
                   />
                 </div>
               </div>
