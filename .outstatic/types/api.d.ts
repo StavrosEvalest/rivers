@@ -2,6 +2,9 @@
 // This file provides typed overloads for Outstatic server functions
 
 import type { CollectionName, CollectionDocument, SingletonName, SingletonDocument, AllDocuments } from './collections'
+import type { ActivitiesFields } from './activities'
+import type { BoardFields } from './board'
+import type { MembersFields } from './members'
 import type { NewsFields } from './news'
 import type { PagesFields } from './pages'
 import type { OutstaticSchema } from 'outstatic'
@@ -26,12 +29,69 @@ interface FindAPI<T, P = T> {
 
 /** Infers the document type from a query's collection property */
 type InferDocumentType<Q> =
+  Q extends { collection: 'activities' } ? OutstaticSchema<ActivitiesFields> :
+  Q extends { collection: 'board' } ? OutstaticSchema<BoardFields> :
+  Q extends { collection: 'members' } ? OutstaticSchema<MembersFields> :
   Q extends { collection: 'news' } ? OutstaticSchema<NewsFields> :
   Q extends { collection: 'pages' } ? OutstaticSchema<PagesFields> :
   OutstaticSchema<AllDocuments>
 
 /** API returned by load() */
 interface LoadAPI {
+  /** Find activities documents with field projection (use 'as const' for type narrowing) */
+  find<K extends keyof OutstaticSchema<ActivitiesFields>>(
+    query: { collection: 'activities' } & Record<string, unknown>,
+    projection: readonly K[]
+  ): FindAPI<OutstaticSchema<ActivitiesFields>, Pick<OutstaticSchema<ActivitiesFields>, K>>
+
+  /** Find activities documents */
+  find(
+    query: { collection: 'activities' } & Record<string, unknown>,
+    projection: string[]
+  ): FindAPI<OutstaticSchema<ActivitiesFields>>
+
+  /** Find activities documents */
+  find(
+    query: { collection: 'activities' } & Record<string, unknown>,
+    projection?: { [key: string]: number }
+  ): FindAPI<OutstaticSchema<ActivitiesFields>>
+
+  /** Find board documents with field projection (use 'as const' for type narrowing) */
+  find<K extends keyof OutstaticSchema<BoardFields>>(
+    query: { collection: 'board' } & Record<string, unknown>,
+    projection: readonly K[]
+  ): FindAPI<OutstaticSchema<BoardFields>, Pick<OutstaticSchema<BoardFields>, K>>
+
+  /** Find board documents */
+  find(
+    query: { collection: 'board' } & Record<string, unknown>,
+    projection: string[]
+  ): FindAPI<OutstaticSchema<BoardFields>>
+
+  /** Find board documents */
+  find(
+    query: { collection: 'board' } & Record<string, unknown>,
+    projection?: { [key: string]: number }
+  ): FindAPI<OutstaticSchema<BoardFields>>
+
+  /** Find members documents with field projection (use 'as const' for type narrowing) */
+  find<K extends keyof OutstaticSchema<MembersFields>>(
+    query: { collection: 'members' } & Record<string, unknown>,
+    projection: readonly K[]
+  ): FindAPI<OutstaticSchema<MembersFields>, Pick<OutstaticSchema<MembersFields>, K>>
+
+  /** Find members documents */
+  find(
+    query: { collection: 'members' } & Record<string, unknown>,
+    projection: string[]
+  ): FindAPI<OutstaticSchema<MembersFields>>
+
+  /** Find members documents */
+  find(
+    query: { collection: 'members' } & Record<string, unknown>,
+    projection?: { [key: string]: number }
+  ): FindAPI<OutstaticSchema<MembersFields>>
+
   /** Find news documents with field projection (use 'as const' for type narrowing) */
   find<K extends keyof OutstaticSchema<NewsFields>>(
     query: { collection: 'news' } & Record<string, unknown>,

@@ -3,5 +3,8 @@
 
 export * from './collections'
 
+export * from './activities'
+export * from './board'
+export * from './members'
 export * from './news'
 export * from './pages'
