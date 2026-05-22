@@ -1,31 +1,33 @@
 ---
-title: "Welcome to Rivers"
+title: "Επανενεργοποίηση του Ελληνικού Δικτύου Δήμων με Ποτάμια"
 status: "published"
 slug: "welcome-to-rivers"
-description: "We are excited to launch our new website dedicated to the world's rivers."
+description: "Το Ελληνικό Δίκτυο Δήμων με Ποτάμια επανενεργοποιήθηκε στα Τρίκαλα τον Οκτώβριο του 2016, με 12 ιδρυτικούς δήμους."
 publishedAt: "2026-05-20T00:00:00.000Z"
 author:
-  name: "Rivers Team"
+  name: "Δίκτυο Δήμων με Ποτάμια"
   picture: ""
 ---
 
-We are so thrilled to welcome you to the launch of **Rivers** — a new platform dedicated to the exploration, documentation, and conservation of rivers across the globe!
+Το Ελληνικό Δίκτυο Δήμων με Ποτάμια επανενεργοποιήθηκε επίσημα στις **1 Οκτωβρίου 2016** στα Τρίκαλα, παρουσία εκπροσώπων 12 ιδρυτικών δήμων.
 
-## Why Rivers?
+## Ιστορικό
 
-Rivers cover only a small fraction of Earth's surface, yet they are home to more than 10% of all known species. They have shaped civilisations, inspired art and literature, and continue to be a source of life for billions of people.
+Το Δίκτυο είχε αρχικά ιδρυθεί στις **13 Ιουνίου 2006** με την επωνυμία «Ελληνικό Δίκτυο Πόλεων με Ποτάμια». Μετά από μια περίοδο αδράνειας, αποφασίστηκε η επανενεργοποίησή του και η μετονομασία του σε «Ελληνικό Δίκτυο Δήμων με Ποτάμια».
 
-Despite their importance, rivers face growing threats: pollution, over-extraction, climate change, and habitat loss are putting these ecosystems under unprecedented pressure.
+## Νέα Αρχή
 
-## What to Expect
+Με αφορμή την επανενεργοποίηση, ο Δήμαρχος Τρικκαίων Δημήτρης Παπαστεργίου δήλωσε χαρακτηριστικά:
 
-In the coming months we will be publishing:
+> «Με το νερό των ποταμών τους ενώνονται πλέον οι Δήμοι που επανενεργοποίησαν το Ελληνικό Δίκτυο Δήμων με Ποτάμια.»
 
-- In-depth reports on river ecosystems from around the world
-- Interviews with conservationists, scientists, and local communities
-- Practical guides on how individuals can help protect their local waterways
-- Photo stories from rivers on every continent
+## Στόχοι
 
-## Join Us
+Το Δίκτυο στοχεύει στην:
 
-Subscribe to our newsletter to stay updated, and follow along as we explore the world's most remarkable rivers. Together, we can make a difference.
+- Περιβαλλοντική προστασία των ποτάμιων οικοσυστημάτων
+- Πολιτιστική ανάδειξη της παραποτάμιας κληρονομιάς
+- Αειφόρο ανάπτυξη των δήμων που διαρρέονται από ποτάμια
+- Ανταλλαγή καλών πρακτικών μεταξύ δήμων-μελών
+
+Σήμερα το Δίκτυο αριθμεί **32 δήμους-μέλη** από όλη την Ελλάδα και συνεχίζει να επεκτείνει τη δράση του σε εθνικό και ευρωπαϊκό επίπεδο.

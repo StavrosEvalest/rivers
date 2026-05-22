@@ -1,41 +1,112 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Navigation from "./components/Navigation";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Rivers",
-  description: "Celebrating the world's rivers",
+  title: {
+    default: "Ελληνικό Δίκτυο Δήμων με Ποτάμια",
+    template: "%s | Δίκτυο Δήμων με Ποτάμια",
+  },
+  description:
+    "Το Ελληνικό Δίκτυο Δήμων με Ποτάμια εκπροσωπεί δήμους με σημαντικά ποτάμια και εργάζεται για την αειφόρο διαχείρισή τους.",
 };
+
+const footerLinks = [
+  { label: "Αρχική", href: "/" },
+  { label: "Το Δίκτυο", href: "/to-diktyo" },
+  { label: "Τα Μέλη", href: "/meli" },
+  { label: "Διοικητικό Συμβούλιο", href: "/dioikitiko-symvoulio" },
+  { label: "Δραστηριότητες", href: "/drastiriotites" },
+  { label: "Νέα", href: "/nea" },
+  { label: "Επικοινωνία", href: "/epikoinonia" },
+];
 
 export default function SiteLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="min-h-full flex flex-col antialiased bg-white text-slate-800">
-      <header className="border-b border-slate-200 bg-white/90 backdrop-blur sticky top-0 z-10">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-blue-700 tracking-tight">
-            Rivers
-          </Link>
-          <nav className="flex gap-8 text-sm font-medium">
-            <Link href="/" className="text-slate-600 hover:text-blue-700 transition-colors">
-              Home
-            </Link>
-            <Link href="/news" className="text-slate-600 hover:text-blue-700 transition-colors">
-              News
-            </Link>
-            <Link href="/contact" className="text-slate-600 hover:text-blue-700 transition-colors">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
-      <main className="flex-1">{children}</main>
+      {/* Offset for fixed header (h-16 = 64px) */}
+      <main className="flex-1 pt-16">{children}</main>
 
-      <footer className="border-t border-slate-200 py-8 mt-16">
-        <div className="max-w-5xl mx-auto px-6 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} Rivers. All rights reserved.
+      <footer className="bg-sky-950 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+            {/* Brand */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-9 h-9 rounded-full bg-sky-400/20 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-cyan-300" fill="currentColor">
+                    <path d="M12 2a5 5 0 0 0-5 5c0 3.5 5 11 5 11s5-7.5 5-11a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-bold text-white text-sm">Δίκτυο Δήμων με Ποτάμια</div>
+                  <div className="text-sky-400 text-xs">Ελληνικό Δίκτυο</div>
+                </div>
+              </div>
+              <p className="text-sky-300 text-sm leading-relaxed">
+                Θεσμικός φορέας για την αειφόρο διαχείριση των ποταμών
+                και υδάτινων πόρων της χώρας.
+              </p>
+            </div>
+
+            {/* Links */}
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-4">
+                Πλοήγηση
+              </h3>
+              <ul className="space-y-2">
+                {footerLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sky-300 hover:text-white text-sm transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-4">
+                Επικοινωνία
+              </h3>
+              <address className="not-italic text-sm text-sky-300 space-y-3">
+                <div className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-sky-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span>Βενιζέλου &amp; Καρδίτσης 1<br />Τρίκαλα, 42131</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-sky-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <a href="tel:2431077977" className="hover:text-white transition-colors">2431077977</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-sky-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <a href="mailto:inforiversgr@gmail.com" className="hover:text-white transition-colors break-all">
+                    inforiversgr@gmail.com
+                  </a>
+                </div>
+              </address>
+            </div>
+          </div>
+
+          <div className="border-t border-sky-800/60 pt-6 text-center text-xs text-sky-600">
+            © {new Date().getFullYear()} Ελληνικό Δίκτυο Δήμων με Ποτάμια. Με την επιφύλαξη παντός δικαιώματος.
+          </div>
         </div>
       </footer>
     </div>
