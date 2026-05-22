@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getDocuments } from "outstatic/server";
+import ParallaxHero from "../components/ParallaxHero";
+import { FadeInUp, StaggerGrid, StaggerItem, HeroReveal } from "../components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Τα Μέλη",
@@ -79,31 +81,28 @@ export default function MeliPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
-        <Image
-          src="https://rivers.gr/wp-content/uploads/2017/09/Nestos.jpg"
-          alt="Νέστος ποταμός"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-950/90 to-sky-800/80" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            Τα Μέλη
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
-            {members.length} Δήμοι-Μέλη
-            <br />
-            <span className="text-cyan-300">από όλη την Ελλάδα</span>
-          </h1>
-          <p className="text-sky-200 text-lg leading-relaxed max-w-2xl mx-auto">
-            Από τον Βοϊδομάτη της Ηπείρου ως τον Ευρώτα της Λακωνίας, από
-            τον Νέστο της Θράκης ως τον Αλιάκμονα της Μακεδονίας.
-          </p>
-        </div>
-      </section>
+      <ParallaxHero
+        src="https://rivers.gr/wp-content/uploads/2017/09/Nestos.jpg"
+        alt="Νέστος ποταμός"
+        priority
+      >
+        <HeroReveal>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              Τα Μέλη
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
+              {members.length} Δήμοι-Μέλη
+              <br />
+              <span className="text-cyan-300">από όλη την Ελλάδα</span>
+            </h1>
+            <p className="text-sky-200 text-lg leading-relaxed max-w-2xl mx-auto">
+              Από τον Βοϊδομάτη της Ηπείρου ως τον Ευρώτα της Λακωνίας, από
+              τον Νέστο της Θράκης ως τον Αλιάκμονα της Μακεδονίας.
+            </p>
+          </div>
+        </HeroReveal>
+      </ParallaxHero>
 
       {/* Stats */}
       <section className="bg-white border-b border-slate-100 py-6">
@@ -142,10 +141,10 @@ export default function MeliPage() {
                 <div className="flex-1 h-px bg-slate-200" />
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" staggerDelay={0.05}>
                 {regionMembers.map((m) => (
+                  <StaggerItem key={m.slug}>
                   <div
-                    key={m.slug}
                     className="rounded-2xl overflow-hidden border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all group bg-white"
                   >
                     <div className="relative h-32 overflow-hidden">
@@ -170,8 +169,9 @@ export default function MeliPage() {
                       </div>
                     </div>
                   </div>
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerGrid>
             </div>
           ))}
         </div>

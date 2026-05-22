@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import ParallaxHero from "../components/ParallaxHero";
+import { FadeInUp, FadeInLeft, StaggerGrid, StaggerItem, HeroReveal } from "../components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Το Δίκτυο",
@@ -68,44 +70,43 @@ export default function ToDiktyoPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
-        <Image
-          src="https://rivers.gr/wp-content/uploads/2017/09/trikala-2.jpg"
-          alt="Τρίκαλα — έδρα του Δικτύου"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-950/90 to-sky-800/80" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            Το Δίκτυο
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
-            Ελληνικό Δίκτυο Δήμων
-            <br />
-            <span className="text-cyan-300">με Ποτάμια</span>
-          </h1>
-          <p className="text-sky-200 text-lg leading-relaxed max-w-2xl mx-auto">
-            Αστική μη Κερδοσκοπική Εταιρεία που εκπροσωπεί δήμους της χώρας
-            με σημαντικά ποτάμια, με έδρα τον Δήμο Τρικκαίων.
-          </p>
-        </div>
-      </section>
+      <ParallaxHero
+        src="https://rivers.gr/wp-content/uploads/2017/09/trikala-2.jpg"
+        alt="Τρίκαλα — έδρα του Δικτύου"
+        priority
+      >
+        <HeroReveal>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              Το Δίκτυο
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
+              Ελληνικό Δίκτυο Δήμων
+              <br />
+              <span className="text-cyan-300">με Ποτάμια</span>
+            </h1>
+            <p className="text-sky-200 text-lg leading-relaxed max-w-2xl mx-auto">
+              Αστική μη Κερδοσκοπική Εταιρεία που εκπροσωπεί δήμους της χώρας
+              με σημαντικά ποτάμια, με έδρα τον Δήμο Τρικκαίων.
+            </p>
+          </div>
+        </HeroReveal>
+      </ParallaxHero>
 
       {/* Mission */}
-
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">
-              Αποστολή & Σκοπός
-            </h2>
-            <div className="w-16 h-1 bg-sky-500 rounded-full mx-auto" />
-          </div>
+          <FadeInUp>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-800 mb-4">
+                Αποστολή & Σκοπός
+              </h2>
+              <div className="w-16 h-1 bg-sky-500 rounded-full mx-auto" />
+            </div>
+          </FadeInUp>
 
-          <div className="bg-sky-50 border border-sky-100 rounded-3xl p-8 sm:p-10 mb-10">
+          <FadeInUp delay={0.1}>
+            <div className="bg-sky-50 border border-sky-100 rounded-3xl p-8 sm:p-10 mb-10">
             <blockquote className="text-slate-700 text-lg leading-relaxed italic text-center">
               «Με το νερό των ποταμών τους ενώνονται πλέον οι Δήμοι που
               επανενεργοποίησαν το Ελληνικό Δίκτυο Δήμων με Ποτάμια.»
@@ -114,7 +115,9 @@ export default function ToDiktyoPage() {
               — Δημήτρης Παπαστεργίου, κατά την επανενεργοποίηση (2016)
             </p>
           </div>
+          </FadeInUp>
 
+          <FadeInLeft delay={0.15}>
           <p className="text-slate-600 text-lg leading-relaxed mb-6">
             Το Ελληνικό Δίκτυο Δήμων με Ποτάμια είναι ένας θεσμικός φορέας
             που αποτελείται από δήμους της Ελλάδας και άλλους συνεργαζόμενους
@@ -127,6 +130,7 @@ export default function ToDiktyoPage() {
             ανάπτυξη των ποτάμιων οικοσυστημάτων, με κεντρικό άξονα την
             αειφόρο διαχείριση των υδάτινων πόρων.
           </p>
+          </FadeInLeft>
         </div>
       </section>
 
@@ -141,20 +145,19 @@ export default function ToDiktyoPage() {
               Τομείς στους οποίους επικεντρώνεται η δράση μας
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
             {goals.map((goal) => (
-              <div
-                key={goal.title}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-100"
-              >
-                <div className="text-3xl mb-4">{goal.icon}</div>
-                <h3 className="font-bold text-slate-800 mb-2">{goal.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
-                  {goal.desc}
-                </p>
-              </div>
+              <StaggerItem key={goal.title}>
+                <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-100 h-full">
+                  <div className="text-3xl mb-4">{goal.icon}</div>
+                  <h3 className="font-bold text-slate-800 mb-2">{goal.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    {goal.desc}
+                  </p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
@@ -176,7 +179,8 @@ export default function ToDiktyoPage() {
 
             <div className="space-y-8">
               {milestones.map((m, i) => (
-                <div key={i} className="flex gap-6 items-start">
+                <FadeInUp key={i} delay={i * 0.1}>
+                <div className="flex gap-6 items-start">
                   <div className="shrink-0 w-16 h-16 rounded-full bg-sky-700 text-white flex flex-col items-center justify-center text-xs font-bold leading-tight relative z-10">
                     {m.year.length > 4 ? (
                       <span className="text-[10px] text-center leading-tight px-1">{m.year}</span>
@@ -191,6 +195,7 @@ export default function ToDiktyoPage() {
                     </p>
                   </div>
                 </div>
+                </FadeInUp>
               ))}
             </div>
           </div>

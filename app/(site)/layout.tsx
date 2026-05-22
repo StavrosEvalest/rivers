@@ -4,13 +4,40 @@ import Image from "next/image";
 import Navigation from "./components/Navigation";
 import "../globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rivers.gr";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Ελληνικό Δίκτυο Δήμων με Ποτάμια",
     template: "%s | Δίκτυο Δήμων με Ποτάμια",
   },
   description:
     "Το Ελληνικό Δίκτυο Δήμων με Ποτάμια εκπροσωπεί δήμους με σημαντικά ποτάμια και εργάζεται για την αειφόρο διαχείρισή τους.",
+  openGraph: {
+    type: "website",
+    locale: "el_GR",
+    url: siteUrl,
+    siteName: "Ελληνικό Δίκτυο Δήμων με Ποτάμια",
+    title: "Ελληνικό Δίκτυο Δήμων με Ποτάμια",
+    description:
+      "Το Ελληνικό Δίκτυο Δήμων με Ποτάμια εκπροσωπεί δήμους με σημαντικά ποτάμια και εργάζεται για την αειφόρο διαχείρισή τους.",
+    images: [
+      {
+        url: "/cover-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ελληνικό Δίκτυο Δήμων με Ποτάμια",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ελληνικό Δίκτυο Δήμων με Ποτάμια",
+    description:
+      "Το Ελληνικό Δίκτυο Δήμων με Ποτάμια εκπροσωπεί δήμους με σημαντικά ποτάμια και εργάζεται για την αειφόρο διαχείρισή τους.",
+    images: ["/cover-image.png"],
+  },
 };
 
 const footerLinks = [

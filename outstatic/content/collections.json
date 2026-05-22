@@ -12,7 +12,15 @@
     "title": "Pages",
     "slug": "pages",
     "path": "outstatic/content/pages",
-    "fields": [],
+    "fields": [
+      { "name": "heroTitle",      "fieldType": "string", "title": "Hero: Τίτλος (1η γραμμή)" },
+      { "name": "heroHighlight",  "fieldType": "string", "title": "Hero: Τίτλος (2η γραμμή, έγχρωμος)" },
+      { "name": "description",    "fieldType": "string", "title": "Hero: Παράγραφος" },
+      { "name": "heroImage",      "fieldType": "string", "title": "Hero: Background (URL)" },
+      { "name": "aboutTitle",     "fieldType": "string", "title": "About: Τίτλος" },
+      { "name": "ctaTitle",       "fieldType": "string", "title": "CTA: Τίτλος" },
+      { "name": "ctaDescription", "fieldType": "string", "title": "CTA: Παράγραφος" }
+    ],
     "children": []
   },
   {

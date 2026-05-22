@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ParallaxHero from "../components/ParallaxHero";
+import { FadeInLeft, FadeInRight, StaggerGrid, StaggerItem, HeroReveal } from "../components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Επικοινωνία",
@@ -48,37 +50,35 @@ export default function EpikoinoniaPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
-        <Image
-          src="https://rivers.gr/wp-content/uploads/2017/09/trikala-2.jpg"
-          alt="Τρίκαλα"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-950/90 to-sky-800/80" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            Επικοινωνία
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
-            Επικοινωνήστε
-            <br />
-            <span className="text-cyan-300">μαζί μας</span>
-          </h1>
-          <p className="text-sky-200 text-lg leading-relaxed max-w-xl mx-auto">
-            Για πληροφορίες σχετικά με το Δίκτυο, τα μέλη ή τις
-            δραστηριότητές μας, είμαστε στη διάθεσή σας.
-          </p>
-        </div>
-      </section>
+      <ParallaxHero
+        src="https://rivers.gr/wp-content/uploads/2017/09/trikala-2.jpg"
+        alt="Τρίκαλα"
+        priority
+      >
+        <HeroReveal>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              Επικοινωνία
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
+              Επικοινωνήστε
+              <br />
+              <span className="text-cyan-300">μαζί μας</span>
+            </h1>
+            <p className="text-sky-200 text-lg leading-relaxed max-w-xl mx-auto">
+              Για πληροφορίες σχετικά με το Δίκτυο, τα μέλη ή τις
+              δραστηριότητές μας, είμαστε στη διάθεσή σας.
+            </p>
+          </div>
+        </HeroReveal>
+      </ParallaxHero>
 
       {/* Main content */}
       <section className="py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact cards */}
+            <FadeInLeft>
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-slate-800 mb-6">
                 Στοιχεία Επικοινωνίας
@@ -135,8 +135,10 @@ export default function EpikoinoniaPage() {
                 </div>
               </div>
             </div>
+            </FadeInLeft>
 
             {/* Contact form */}
+            <FadeInRight delay={0.1}>
             <div>
               <h2 className="text-2xl font-bold text-slate-800 mb-6">
                 Φόρμα Επικοινωνίας
@@ -234,6 +236,7 @@ export default function EpikoinoniaPage() {
                 </form>
               </div>
             </div>
+            </FadeInRight>
           </div>
         </div>
       </section>

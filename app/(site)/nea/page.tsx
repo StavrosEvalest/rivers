@@ -2,6 +2,8 @@ import { getDocuments } from "outstatic/server";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import ParallaxHero from "../components/ParallaxHero";
+import { StaggerGrid, StaggerItem, HeroReveal } from "../components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Νέα",
@@ -28,28 +30,25 @@ export default async function NeaPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
-        <Image
-          src="https://rivers.gr/wp-content/uploads/2017/09/veroia-1.jpg"
-          alt="Βέροια — Αλιάκμονας"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-950/90 to-sky-800/80" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            Ενημέρωση
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
-            Νέα &amp; Ανακοινώσεις
-          </h1>
-          <p className="text-sky-200 text-lg">
-            Ενημερωθείτε για τις τελευταίες εξελίξεις και δράσεις του Δικτύου
-          </p>
-        </div>
-      </section>
+      <ParallaxHero
+        src="https://rivers.gr/wp-content/uploads/2017/09/veroia-1.jpg"
+        alt="Βέροια — Αλιάκμονας"
+        priority
+      >
+        <HeroReveal>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              Ενημέρωση
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
+              Νέα &amp; Ανακοινώσεις
+            </h1>
+            <p className="text-sky-200 text-lg">
+              Ενημερωθείτε για τις τελευταίες εξελίξεις και δράσεις του Δικτύου
+            </p>
+          </div>
+        </HeroReveal>
+      </ParallaxHero>
 
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -69,7 +68,7 @@ export default async function NeaPage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <StaggerGrid className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.07}>
                 {posts.map((post, i) => {
                   const cardImages = [
                     "https://rivers.gr/wp-content/uploads/2025/07/Festival-logo-Word-file-2-348x215.jpg",
@@ -81,9 +80,9 @@ export default async function NeaPage() {
                   ];
                   const cardImg = cardImages[i % cardImages.length];
                   return (
+                  <StaggerItem key={post.slug}>
                   <article
-                    key={post.slug}
-                    className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all group flex flex-col"
+                    className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all group flex flex-col h-full"
                   >
                     {/* Card photo */}
                     <div className="relative h-48 overflow-hidden">
@@ -131,9 +130,10 @@ export default async function NeaPage() {
                       </Link>
                     </div>
                   </article>
+                  </StaggerItem>
                   );
                 })}
-              </div>
+              </StaggerGrid>
             </>
           )}
         </div>

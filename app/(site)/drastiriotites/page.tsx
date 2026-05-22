@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getDocuments } from "outstatic/server";
+import ParallaxHero from "../components/ParallaxHero";
+import { FadeInUp, StaggerGrid, StaggerItem, HeroReveal } from "../components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Δραστηριότητες",
@@ -49,31 +51,28 @@ export default function DrastiriotitesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
-        <Image
-          src="https://rivers.gr/wp-content/uploads/2025/03/DSC06005-1-735x400.jpg"
-          alt="Εκδήλωση Δικτύου"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-950/90 to-sky-800/80" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            Δράσεις
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
-            Δραστηριότητες
-            <br />
-            <span className="text-cyan-300">&amp; Εκδηλώσεις</span>
-          </h1>
-          <p className="text-sky-200 text-lg leading-relaxed max-w-2xl mx-auto">
-            Ημερίδες, σεμινάρια, συνέδρια και πολιτιστικές εκδηλώσεις για
-            την ανάδειξη και προστασία των ποταμών της Ελλάδας.
-          </p>
-        </div>
-      </section>
+      <ParallaxHero
+        src="https://rivers.gr/wp-content/uploads/2025/03/DSC06005-1-735x400.jpg"
+        alt="Εκδήλωση Δικτύου"
+        priority
+      >
+        <HeroReveal>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              Δράσεις
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
+              Δραστηριότητες
+              <br />
+              <span className="text-cyan-300">&amp; Εκδηλώσεις</span>
+            </h1>
+            <p className="text-sky-200 text-lg leading-relaxed max-w-2xl mx-auto">
+              Ημερίδες, σεμινάρια, συνέδρια και πολιτιστικές εκδηλώσεις για
+              την ανάδειξη και προστασία των ποταμών της Ελλάδας.
+            </p>
+          </div>
+        </HeroReveal>
+      </ParallaxHero>
 
       {/* Featured activity */}
       {featured && (
@@ -130,8 +129,8 @@ export default function DrastiriotitesPage() {
 
           <div className="space-y-4">
             {rest.map((a, i) => (
+              <FadeInUp key={i} delay={Math.min(i * 0.05, 0.3)}>
               <article
-                key={i}
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-sky-300 hover:shadow-sm transition-all group flex gap-0"
               >
                 <div className="relative w-28 sm:w-36 shrink-0 overflow-hidden">
@@ -167,6 +166,7 @@ export default function DrastiriotitesPage() {
                   </div>
                 </div>
               </article>
+              </FadeInUp>
             ))}
           </div>
         </div>

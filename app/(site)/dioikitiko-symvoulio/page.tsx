@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getDocuments } from "outstatic/server";
+import ParallaxHero from "../components/ParallaxHero";
+import { StaggerGrid, StaggerItem, HeroReveal, FadeInUp } from "../components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Διοικητικό Συμβούλιο",
@@ -47,17 +49,14 @@ export default function DioikitikoSymvoulioPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
-        <Image
-          src="https://rivers.gr/wp-content/uploads/2017/09/trikala-2-2-300x200.jpg"
-          alt="Τρίκαλα"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-950/92 to-sky-800/85" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <ParallaxHero
+        src="https://rivers.gr/wp-content/uploads/2017/09/trikala-2-2-300x200.jpg"
+        alt="Τρίκαλα"
+        overlay="absolute inset-0 bg-gradient-to-br from-sky-950/92 to-sky-800/85"
+        priority
+      >
+        <HeroReveal>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block bg-sky-400/20 border border-sky-400/30 text-sky-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             Διοίκηση
           </span>
@@ -71,15 +70,16 @@ export default function DioikitikoSymvoulioPage() {
             που εκπροσωπούν δήμους από διαφορετικές περιφέρειες της χώρας.
           </p>
         </div>
-      </section>
+        </HeroReveal>
+      </ParallaxHero>
 
       {/* Board grid */}
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
             {boardMembers.map((m) => (
+              <StaggerItem key={m.slug}>
               <div
-                key={m.slug}
                 className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col"
               >
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-100 to-cyan-100 border-2 border-sky-200 flex items-center justify-center mb-4 text-2xl font-bold text-sky-700 select-none">
@@ -153,8 +153,9 @@ export default function DioikitikoSymvoulioPage() {
                   )}
                 </div>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
