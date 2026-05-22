@@ -1,47 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { getDocuments } from "outstatic/server";
 
 export const metadata: Metadata = {
   title: "Τα Μέλη",
-  description: "Τα 32 μέλη-δήμοι του Ελληνικού Δικτύου Δήμων με Ποτάμια από όλη την Ελλάδα.",
+  description: "Τα μέλη-δήμοι του Ελληνικού Δικτύου Δήμων με Ποτάμια από όλη την Ελλάδα.",
 };
-
-const B = "https://rivers.gr/wp-content/uploads";
-
-const members = [
-  { name: "Δήμος Αλεξάνδρειας", river: "Αλιάκμονας", region: "Κεντρική Μακεδονία", img: `${B}/2017/09/ALEKSANDREIA-300x199.jpg` },
-  { name: "Δήμος Άργους Ορεστικού", river: "Αλιάκμονας", region: "Δυτική Μακεδονία", img: `${B}/2017/09/naousa-1-300x200.jpg` },
-  { name: "Δήμος Αργιθέας", river: "Αχελώος", region: "Θεσσαλία", img: `${B}/2017/09/argithea.jpg` },
-  { name: "Δήμος Αρταίων", river: "Άραχθος", region: "Ήπειρος", img: `${B}/2017/09/arta-1-300x200.jpg` },
-  { name: "Δήμος Αποκορώνου", river: "Ποταμός Αποκορώνου", region: "Κρήτη", img: `${B}/2017/09/Pili-1-300x200.jpg` },
-  { name: "Δήμος Βέροιας", river: "Αλιάκμονας", region: "Κεντρική Μακεδονία", img: `${B}/2017/09/VERIA-300x200.jpg` },
-  { name: "Δήμος Γρεβενών", river: "Αλιάκμονας / Γρεβενίτης", region: "Δυτική Μακεδονία", img: `${B}/2017/09/grevena-300x200.jpg` },
-  { name: "Δήμος Δέλτα", river: "Αξιός", region: "Κεντρική Μακεδονία", img: `${B}/2017/09/Nestos.jpg` },
-  { name: "Δήμος Διδυμοτείχου", river: "Έβρος / Ερυθροπόταμος", region: "Ανατολική Μακεδονία & Θράκη", img: `${B}/2017/09/didimoteiho-300x200.jpg` },
-  { name: "Δήμος Έδεσσας", river: "Εδεσσαίος", region: "Κεντρική Μακεδονία", img: `${B}/2017/09/edessa-300x200.jpg` },
-  { name: "Δήμος Ζαγορίου", river: "Αώος / Βοϊδομάτης", region: "Ήπειρος", img: `${B}/2017/09/ZAGORI-300x200.jpg` },
-  { name: "Δήμος Ζηρού", river: "Λούρος", region: "Ήπειρος", img: `${B}/2017/09/arta.jpg` },
-  { name: "Δήμος Ζίτσας", river: "Καλαμάς (Θύαμις)", region: "Ήπειρος", img: `${B}/2017/09/theogefiro_1-300x225.jpg` },
-  { name: "Δήμος Καλαμάτας", river: "Νέδοντας", region: "Πελοπόννησος", img: `${B}/2017/09/kalamata.jpg` },
-  { name: "Δήμος Καρδίτσας", river: "Αχελώος / Σοφαδίτης", region: "Θεσσαλία", img: `${B}/2017/09/trikala-2.jpg` },
-  { name: "Δήμος Κόνιτσας", river: "Αώος / Βοϊδομάτης", region: "Ήπειρος", img: `${B}/2017/09/Konitsa-2-300x200.jpg` },
-  { name: "Δήμος Λαρισαίων", river: "Πηνειός", region: "Θεσσαλία", img: `${B}/2017/09/LARISA-300x200.jpg` },
-  { name: "Δήμος Λεβαδέων", river: "Κηφισός Βοιωτίας", region: "Στερεά Ελλάδα", img: `${B}/2017/09/livadia-1-300x201.jpg` },
-  { name: "Δήμος Μακρακώμης", river: "Σπερχειός", region: "Στερεά Ελλάδα", img: `${B}/2017/09/Pili.jpg` },
-  { name: "Δήμος Μεταμόρφωσης", river: "Κηφισός Αττικής", region: "Αττική", img: `${B}/2017/09/metamorfosi.jpg` },
-  { name: "Δήμος Μετεώρων", river: "Πηνειός", region: "Θεσσαλία", img: `${B}/2017/09/kalampaka-meteora-300x200.jpg` },
-  { name: "Δήμος Μουζακίου", river: "Αχελώος", region: "Θεσσαλία", img: `${B}/2017/09/trikala-2-2-300x200.jpg` },
-  { name: "Δήμος Νάουσας", river: "Αλιάκμονας / Αράπιτσα", region: "Κεντρική Μακεδονία", img: `${B}/2017/09/naousa-1-300x200.jpg` },
-  { name: "Δήμος Ν. Σκουφά", river: "Λούρος", region: "Ήπειρος", img: `${B}/2017/09/arta.jpg` },
-  { name: "Δήμος Ξάνθης", river: "Νέστος", region: "Ανατολική Μακεδονία & Θράκη", img: `${B}/2017/09/Nestos.jpg` },
-  { name: "Δήμος Ορχομενού", river: "Κηφισός Βοιωτίας", region: "Στερεά Ελλάδα", img: `${B}/2017/09/livadia.jpg` },
-  { name: "Δήμος Πύλης", river: "Πηνειός", region: "Θεσσαλία", img: `${B}/2017/09/Pili-1-300x200.jpg` },
-  { name: "Δήμος Σοφάδων", river: "Σοφαδίτης", region: "Θεσσαλία", img: `${B}/2017/09/sofades-950x400-300x200.png` },
-  { name: "Δήμος Σπάρτης", river: "Ευρώτας", region: "Πελοπόννησος", img: `${B}/2017/09/Sparti-300x200.jpg` },
-  { name: "Δήμος Τρικκαίων", river: "Πηνειός / Ληθαίος", region: "Θεσσαλία", img: `${B}/2017/09/trikala-2-2-300x200.jpg` },
-  { name: "Δήμος Φλώρινας", river: "Σακουλέβας", region: "Δυτική Μακεδονία", img: `${B}/2017/09/florina-2-300x200.jpg` },
-  { name: "Δήμος Χαλκηδόνας", river: "Αξιός", region: "Κεντρική Μακεδονία", img: `${B}/2017/09/veroia-1.jpg` },
-];
 
 const regions = [
   "Θεσσαλία",
@@ -67,10 +31,50 @@ const regionColors: Record<string, string> = {
   "Κρήτη": "bg-teal-100 text-teal-700 border-teal-200",
 };
 
+const highlightedSlugs = ["konitsas", "zagoriou", "didymoteicho", "spartis"];
+
 export default function MeliPage() {
+  const raw = getDocuments("members", [
+    "title", "slug", "river", "region", "image", "status",
+  ]);
+
+  const members = raw
+    .filter((m) => m.status === "published")
+    .map((m) => ({
+      name: m.title,
+      slug: m.slug,
+      river: (m.river as string) ?? "",
+      region: (m.region as string) ?? "",
+      img: (m.image as string) ?? "",
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, "el"));
+
   const byRegion = regions
     .map((r) => ({ region: r, members: members.filter((m) => m.region === r) }))
     .filter((r) => r.members.length > 0);
+
+  const highlighted = highlightedSlugs
+    .map((s) => members.find((m) => m.slug === s))
+    .filter(Boolean) as typeof members;
+
+  const highlightDetails: Record<string, { rivers: string[]; text: string }> = {
+    konitsas: {
+      rivers: ["Αώος", "Βοϊδομάτης"],
+      text: "Ο Βοϊδομάτης είναι ένας από τους καθαρότερους ποταμούς της Ευρώπης. Το περίφημο Γεφύρι Κόνιτσας (1870) είναι η μεγαλύτερη μονότοξη γέφυρα στα Βαλκάνια.",
+    },
+    zagoriou: {
+      rivers: ["Αώος", "Βοϊδομάτης", "Ζαγορίτικος", "Βίκος"],
+      text: "Η περιοχή διασχίζεται από τέσσερα ποτάμια. Ο Βοϊδομάτης αναδεικνύεται για κανό και ράφτινγκ. Εντάσσεται στον Εθνικό Δρυμό Βίκου-Αώου.",
+    },
+    didymoteicho: {
+      rivers: ["Έβρος", "Ερυθροπόταμος"],
+      text: "Πόλη με 7.000 χρόνια συνεχούς κατοίκησης. Ο Έβρος είναι ο μεγαλύτερος ποταμός των Βαλκανίων και φυσικό σύνορο Ελλάδας-Τουρκίας.",
+    },
+    spartis: {
+      rivers: ["Ευρώτας", "Οινούντας"],
+      text: "Ο Ευρώτας είναι σύμβολο και ιστορικό μνημείο της Λακωνίας. Το δέλτα του (Δίβαρη) φιλοξενεί 210+ σπάνια είδη πουλιών — εντάσσεται στο NATURA 2000.",
+    },
+  };
 
   return (
     <div>
@@ -128,7 +132,11 @@ export default function MeliPage() {
             <div key={region}>
               <div className="flex items-center gap-3 mb-6">
                 <h2 className="text-xl font-bold text-slate-700">{region}</h2>
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${regionColors[region] ?? "bg-slate-100 text-slate-600 border-slate-200"}`}>
+                <span
+                  className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${
+                    regionColors[region] ?? "bg-slate-100 text-slate-600 border-slate-200"
+                  }`}
+                >
                   {regionMembers.length} δήμοι
                 </span>
                 <div className="flex-1 h-px bg-slate-200" />
@@ -137,10 +145,9 @@ export default function MeliPage() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {regionMembers.map((m) => (
                   <div
-                    key={m.name}
+                    key={m.slug}
                     className="rounded-2xl overflow-hidden border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all group bg-white"
                   >
-                    {/* Photo */}
                     <div className="relative h-32 overflow-hidden">
                       <Image
                         src={m.img}
@@ -151,7 +158,6 @@ export default function MeliPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-sky-950/50 to-transparent" />
                     </div>
-                    {/* Info */}
                     <div className="p-4">
                       <div className="font-semibold text-slate-800 text-sm leading-snug">
                         {m.name}
@@ -172,85 +178,64 @@ export default function MeliPage() {
       </section>
 
       {/* Highlighted members */}
-      <section className="py-16 sm:py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-2">
-              Προβεβλημένα Μέλη
-            </h2>
-            <p className="text-slate-500 text-sm">
-              Μέλη με αξιόλογα ποτάμια και πλούσια παραποτάμια κληρονομιά
-            </p>
-          </div>
+      {highlighted.length > 0 && (
+        <section className="py-16 sm:py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-800 mb-2">
+                Προβεβλημένα Μέλη
+              </h2>
+              <p className="text-slate-500 text-sm">
+                Μέλη με αξιόλογα ποτάμια και πλούσια παραποτάμια κληρονομιά
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                name: "Δήμος Κόνιτσας",
-                region: "Ήπειρος",
-                rivers: ["Αώος", "Βοϊδομάτης"],
-                img: `${B}/2017/09/Konitsa.jpg`,
-                highlight:
-                  "Ο Βοϊδομάτης είναι ένας από τους καθαρότερους ποταμούς της Ευρώπης. Το περίφημο Γεφύρι Κόνιτσας (1870) είναι η μεγαλύτερη μονότοξη γέφυρα στα Βαλκάνια.",
-              },
-              {
-                name: "Δήμος Ζαγορίου",
-                region: "Ήπειρος",
-                rivers: ["Αώος", "Βοϊδομάτης", "Ζαγορίτικος", "Βίκος"],
-                img: `${B}/2017/09/ZAGORI-300x200.jpg`,
-                highlight:
-                  "Η περιοχή διασχίζεται από τέσσερα ποτάμια. Ο Βοϊδομάτης αναδεικνύεται για κανό και ράφτινγκ. Εντάσσεται στον Εθνικό Δρυμό Βίκου-Αώου.",
-              },
-              {
-                name: "Δήμος Διδυμοτείχου",
-                region: "Ανατολική Μακεδονία & Θράκη",
-                rivers: ["Έβρος", "Ερυθροπόταμος"],
-                img: `${B}/2017/09/didimoteiho-300x200.jpg`,
-                highlight:
-                  "Πόλη με 7.000 χρόνια συνεχούς κατοίκησης. Ο Έβρος είναι ο μεγαλύτερος ποταμός των Βαλκανίων και φυσικό σύνορο Ελλάδας-Τουρκίας.",
-              },
-              {
-                name: "Δήμος Σπάρτης",
-                region: "Πελοπόννησος",
-                rivers: ["Ευρώτας", "Οινούντας"],
-                img: `${B}/2017/09/Sparti-300x200.jpg`,
-                highlight:
-                  "Ο Ευρώτας είναι σύμβολο και ιστορικό μνημείο της Λακωνίας. Το δέλτα του (Δίβαρη) φιλοξενεί 210+ σπάνια είδη πουλιών — εντάσσεται στο NATURA 2000.",
-              },
-            ].map((m) => (
-              <div
-                key={m.name}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="relative h-52 overflow-hidden">
-                  <Image
-                    src={m.img}
-                    alt={m.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-sky-950/70 to-transparent" />
-                  <div className="absolute bottom-3 left-4">
-                    <h3 className="font-bold text-white text-lg">{m.name}</h3>
-                    <span className="text-sky-200 text-sm">{m.region}</span>
+            <div className="grid md:grid-cols-2 gap-6">
+              {highlighted.map((m) => {
+                const detail = highlightDetails[m.slug];
+                return (
+                  <div
+                    key={m.slug}
+                    className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="relative h-52 overflow-hidden">
+                      <Image
+                        src={m.img}
+                        alt={m.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-sky-950/70 to-transparent" />
+                      <div className="absolute bottom-3 left-4">
+                        <h3 className="font-bold text-white text-lg">{m.name}</h3>
+                        <span className="text-sky-200 text-sm">{m.region}</span>
+                      </div>
+                    </div>
+                    {detail && (
+                      <div className="p-6">
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {detail.rivers.map((r) => (
+                            <span
+                              key={r}
+                              className="bg-sky-50 border border-sky-100 text-sky-700 text-xs px-2.5 py-1 rounded-full font-medium"
+                            >
+                              {r}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          {detail.text}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {m.rivers.map((r) => (
-                      <span key={r} className="bg-sky-50 border border-sky-100 text-sky-700 text-xs px-2.5 py-1 rounded-full font-medium">
-                        {r}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-slate-600 text-sm leading-relaxed">{m.highlight}</p>
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

@@ -3,12 +3,53 @@
     "title": "News",
     "slug": "news",
     "path": "outstatic/content/news",
+    "fields": [
+      { "name": "description", "fieldType": "string", "title": "Σύντομη Περιγραφή" }
+    ],
     "children": []
   },
   {
     "title": "Pages",
     "slug": "pages",
     "path": "outstatic/content/pages",
+    "fields": [],
+    "children": []
+  },
+  {
+    "title": "Δραστηριότητες",
+    "slug": "activities",
+    "path": "outstatic/content/activities",
+    "fields": [
+      { "name": "date",        "fieldType": "string",  "title": "Ημερομηνία (κείμενο)",      "required": true },
+      { "name": "description", "fieldType": "string",  "title": "Σύντομη Περιγραφή",         "required": true },
+      { "name": "image",       "fieldType": "string",  "title": "Εικόνα (URL)" },
+      { "name": "highlight",   "fieldType": "boolean", "title": "Προτεινόμενη δραστηριότητα" },
+      { "name": "tags",        "fieldType": "tags",    "title": "Ετικέτες" }
+    ],
+    "children": []
+  },
+  {
+    "title": "Μέλη",
+    "slug": "members",
+    "path": "outstatic/content/members",
+    "fields": [
+      { "name": "river",  "fieldType": "string", "title": "Ποτάμι",      "required": true },
+      { "name": "region", "fieldType": "string", "title": "Περιφέρεια",  "required": true },
+      { "name": "image",  "fieldType": "string", "title": "Εικόνα (URL)" }
+    ],
+    "children": []
+  },
+  {
+    "title": "Διοικητικό Συμβούλιο",
+    "slug": "board",
+    "path": "outstatic/content/board",
+    "fields": [
+      { "name": "role",         "fieldType": "string", "title": "Ρόλος",            "required": true },
+      { "name": "position",     "fieldType": "string", "title": "Τίτλος / Θέση",    "required": true },
+      { "name": "municipality", "fieldType": "string", "title": "Δήμος",            "required": true },
+      { "name": "email",        "fieldType": "string", "title": "Email" },
+      { "name": "order",        "fieldType": "number", "title": "Σειρά εμφάνισης" }
+    ],
     "children": []
   }
 ]
